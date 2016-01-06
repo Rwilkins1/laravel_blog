@@ -41,13 +41,18 @@ Route::get('/sayhello/{name}', function($name)
 
 Route::get('/rolldice/{guess?}', function($guess = null) {
 	$randomnumber = mt_rand(1, 6);
-	if($guess != null && $guess == $randomnumber) {
-		$result = "You guessed correctly!";
-		$guess = "You guessed $guess!";
-	} else if ($guess != null && $guess != $randomnumber) {
-		$result = "You guessed incorrectly!";
-		$guess = "You guessed $guess!";
-	} else if ($guess == null) {
+	if($guess != null) {
+		if($guess > 6 || $guess < 1) {
+			$result = "Your guess must be between 1 and 6!";
+			$guess = "Your guess was out of range!";
+		} else if($guess == $randomnumber) {
+			$result = "You guessed correctly!";
+			$guess = "You guessed $guess!";
+		} else if ($guess != $randomnumber) {
+			$result = "You guessed incorrectly!";
+			$guess = "You guessed $guess!";
+		} 
+	} else {
 		$result = "";
 		$guess = '';
 	}
