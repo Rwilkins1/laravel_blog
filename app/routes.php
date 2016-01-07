@@ -16,13 +16,13 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-// Route::get('/resume', function() {
-// 	return "This is my resume";
-// });
+Route::get('/resume', function() {
+	return View::make('resume');
+});
 
-// Route::get('/portfolio', function() {
-// 	return "This is my portfolio";
-// });
+Route::get('/portfolio', function() {
+	return View::make('portfolio');
+});
 
 // Route::get('/{route?}', function($route = null) 
 // {
