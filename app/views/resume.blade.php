@@ -7,10 +7,10 @@
 	}
 	ul {
 		list-style-type: none;
-		margin-bottom: -.8%;
+		/*margin-bottom: -.8%;
 		border: 5px double black;
 		background-color: gold;
-		padding-bottom: 2%;
+		padding-bottom: 2%;*/
 	}
 	li {
 

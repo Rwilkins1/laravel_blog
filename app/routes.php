@@ -17,6 +17,12 @@ Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
+Route::get('/contact', 'HomeController@showContact');
+
+Route::get('/thankyou', 'HomeController@thank');
+
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');
+
+Route::get('/spatulacity', 'HomeController@gotospatulas');

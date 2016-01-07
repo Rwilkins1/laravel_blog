@@ -55,4 +55,19 @@ class HomeController extends BaseController {
         $data = array('guess' => $guess, 'randomnumber' => $randomnumber, 'result' => $result);
         return View::make('roll-dice')->with($data);
     }
+
+    public function gotospatulas()
+    {
+        return View::make('spatulacity');
+    }
+
+    public function showContact()
+    {
+        return View::make('contact');
+    }
+
+    public function thank()
+    {
+        return View::make('thankyou');
+    }
 }
