@@ -31,7 +31,7 @@
 		<div class = "col-md-4 sec">
 			
 			<div class = "box">
-				<h4>Simple Simon (a JavaScript game built on the jQuery library):</h4><a href="simplesimon.dev"><img id="simplesimon" src="/img/simplesimon.png"></a></li>
+				<h4>Simple Simon (a JavaScript game built on the jQuery library):</h4><a href="/../app/views/simplesimon/public/index.html"><img id="simplesimon" src="/img/simplesimon.png"></a></li>
 			</div>
 		</div>
 		<div class = "col-md-4 sec">
