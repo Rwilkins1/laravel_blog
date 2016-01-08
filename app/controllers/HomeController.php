@@ -70,4 +70,14 @@ class HomeController extends BaseController {
     {
         return View::make('thankyou');
     }
+
+    public function login()
+    {
+        return View::make('login');
+    }
+
+    public function signup()
+    {
+        return View::make('signup');
+    }
 }

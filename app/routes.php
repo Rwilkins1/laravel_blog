@@ -21,6 +21,10 @@ Route::get('/contact', 'HomeController@showContact');
 
 Route::get('/thankyou', 'HomeController@thank');
 
+Route::get('/login', 'HomeController@login');
+
+Route::get('/signup', 'HomeController@signup');
+
 Route::resource('/posts', 'PostsController');
 
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
