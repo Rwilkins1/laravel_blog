@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('allposts');
+		return View::make('/posts/allposts');
 	}
 
 
@@ -31,7 +31,10 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		return Redirect::back()->withInput();
+		$newpost = new Post();
+		$newpost->title = Input::get('title');
+		$newpost->body = Input::get('body');
+		$newpost->save();
 	}
 
 
@@ -43,7 +46,8 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('showpost');
+		$post = Post::find($id);
+		return View::make('showposts')->with('post', $post);
 	}
 
 
@@ -67,7 +71,11 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return "update this post";
+		$posttoupdate = Post::find($id);
+		$posttoupdate->title = Input::get('title');
+		$posttoupdate->body = Input::get('body');
+		$posttoupdate->save();
+		return View::make('/posts/allposts');
 	}
 
 

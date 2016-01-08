@@ -1,5 +1,15 @@
 @extends('layouts.master')
-
+{{-- 
+<?php
+$newpost = new Post();
+$newpost->title = Input::get('title');
+$newpost->body = Input::get('body');
+if($newpost->title != null) {
+	if($newpost->body != null) {
+		$newpost->save();
+	}
+}
+?> --}}
 @section('content')
 <div class = "box">
 	<div class = "col-md-6 col-md-offset-3 text-center">
@@ -15,7 +25,7 @@
 					<div class = "form-group">
 						<label class = "control-label" for "body">Body</label>
 						<div class="col-sm-6">
-							<textarea class="form-control" name="body" placeholder = "{{{Input::old('body')}}}"></textarea>
+							<textarea class="form-control" name="body" id="body" placeholder = "{{{Input::old('body')}}}"></textarea>
 						</div>
 					</div>
 				</p>

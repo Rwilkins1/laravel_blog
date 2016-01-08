@@ -80,4 +80,19 @@ class HomeController extends BaseController {
     {
         return View::make('signup');
     }
+
+    public function calculator()
+    {
+        return View::make('calculator');
+    }
+
+    public function simplesimon()
+    {
+        return View::make('simplesimon');
+    }
+
+    public function whackamole()
+    {
+        return View::make('whackamole');
+    }
 }

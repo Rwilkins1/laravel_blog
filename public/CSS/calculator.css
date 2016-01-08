@@ -1,0 +1,171 @@
+/*The background*/
+body {
+	background-image: url(http://codeup.dev/img/purty_wood.png);
+}
+
+
+/*The "Wilkins Instruments" Label*/
+#instrument {
+	color: #444;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px gray;
+}
+
+/*The Input fields as a unit*/
+#spaces {
+	margin-left: 50px;
+	text-align: center;
+	border-top: 3px solid black;
+	border-right: 3px solid black;
+	border-left: 3px solid black;
+	padding-top: 30px;
+	margin-right: 300px;
+	margin-left: 350px;
+	padding-bottom: 30px;
+	background-image: url(http://codeup.dev/img/calc4.png);
+	background-repeat: no-repeat;
+	background-size: 1000px 1000px;
+	box-shadow: 10px 10px 5px #444;
+	border-radius: 25px;
+}
+
+/*Properties of the input fields themselves*/
+textarea {
+	background-color: #999966;
+	font-family: Pocket Calculator OT;
+	font-size: 25.54px;
+	text-shadow: 2px 2px gray;
+	box-shadow: 5px 5px 5px #444;
+}
+
+/*The buttons area*/
+#buttons {
+	margin-top: 6px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-right: 300px;
+	border-bottom: 3px solid black;
+	border-left: 3px solid black;
+	border-right: 3px solid black;
+	margin-left: 350px;
+	background-image: url(http://codeup.dev/img/calc1.png);
+	background-repeat: no-repeat;
+	background-size: 600px 500px;
+	box-shadow: 0px 10px 5px #444 inset;
+	box-shadow: 10px 10px 5px #444;
+	border-radius: 25px;
+}
+
+/*Individual Buttons*/
+a {
+	background-color : #444;
+	color: orange;
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	box-shadow: 3px 3px 5px #888888 inset;
+	border-radius: 25px;
+
+}
+
+/*Pseudo classes for the individual buttons*/
+a:hover {
+	/*border: 5px solid black;*/
+	margin-top: 15px;
+	margin-bottom: 5px;
+	margin-left: 50px;
+	margin-right: 0px;
+	box-shadow: 5px 5px 5px #888888 inset;
+
+}
+
+a:active {
+	background-color: #888888;
+	box-shadow: 3px 3px 5px #444 inset;
+}
+
+/*Properties of the Clear Button*/
+#C {
+	background-color: #CC9933;
+	box-shadow: 3px 3px 5px #CCCC00 inset;
+	color: black;
+}
+
+#C:active {
+	background-color: #CCCC00;
+	box-shadow: 3px 3px 5px #CC9933 inset;
+}
+
+#C:hover {
+	box-shadow: 5px 5px 5px #CCCC00 inset;
+}
+
+/*Properties of the "Equals" button*/
+#eq {
+	background-color: #339933;
+	color: black;
+	box-shadow: 3px 3px 5px #33CC33 inset;
+}
+
+#eq:active {
+	background-color: #33CC33;
+	color: black;
+	box-shadow: 3px 3px 5px #006600 inset;
+}
+
+#eq:hover {
+	box-shadow: 5px 5px 5px #33CC33 inset;
+}
+
+/*Properties of the "Operator" buttons*/
+.op {
+	background-color: #D80000;
+	box-shadow: 3px 3px 5px #FF0000 inset;
+	color: black;
+}
+
+.op:active {
+	background-color: #FF0000;
+	box-shadow: 3px 3px 5px #D80000 inset;
+	color: black;
+}
+
+.op:hover {
+	box-shadow: 5px 5px 5px #FF0000 inset;
+}
+
+/*More in-depth button formatting*/
+#misc {
+	margin-left: 50px;
+}
+
+#misc:hover {
+	margin-right: 0px;
+}
+
+#misc1 {
+	margin-left: 30px;
+}
+
+#misc2 {
+	padding-left: 26px;
+	padding-right: 26px;
+}
+
+#misc3 {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+#misc4 {
+	margin-left: 55px;
+	padding-left: 32px;
+	padding-right: 32px;
+}

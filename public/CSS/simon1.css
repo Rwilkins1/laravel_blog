@@ -1,0 +1,144 @@
+/*The Background*/
+body {
+	background-image: url(http://simplesimon.dev/img/simonback3.png);
+	background-position: center;
+}
+
+/*The Difficulty Selector*/
+#difficulty {
+	text-align: center;
+	background-color: gray;
+	margin-left: 26%;
+	margin-right: 24%;
+	margin-top: -5px;
+	font-family: Pocket Calculator OT;
+	font-size: 15px;
+	box-shadow: 5px 5px 5px black;
+}
+
+/*The Winning Streak Counter*/
+#streak {
+	text-align: center;
+	background-color: gray;
+	margin-left: 26%;
+	margin-right: 24%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: Pocket Calculator OT;
+	box-shadow: 5px 5px 5px black;
+}
+
+/*The Score Itself*/
+#score {
+	background-color: #999966;
+	margin-left: 46.5%;
+	margin-right: 46.5%;
+	text-shadow: 1px 1px 2px black;
+	font-size: 18px;
+}
+
+/*Formatting of the buttons as a group*/
+#buttons {
+	margin-top: 1%;
+	margin-left: 29%;
+	border: 10px solid black;
+	margin-right: 27.0%;
+	padding-bottom: 0%;
+	background-color: black;
+}
+
+/*The Red Button*/
+#red {
+	background-color: #CC0000;
+	padding-top: 50%;
+	width: 50%;
+	margin-left: 0%;
+	opacity: 0.5;
+	border-bottom: 5px solid black;
+	border-right: 5px solid black;
+	position: relative;
+}
+
+#red:hover {
+	box-shadow: 2px 2px 2px black inset;
+}
+
+/*The Orange Button*/
+#orange {
+	background-color: orange;
+	padding-top: 50%;
+	width: 50%;
+	margin-left: 49.5%;
+	margin-right: .5%;
+	margin-top: -51%;
+	opacity: 0.5;
+	border-bottom: 5px solid black;
+	border-left: 5px solid black;
+	position: relative;
+}
+
+#orange:hover {
+	box-shadow: 2px 2px 2px black inset;
+}
+
+/*The Green Button*/
+#green {
+	background-color: green;
+	padding-top: 50%;
+	width: 50%;
+	opacity: 0.5;
+	margin-left: 0%;
+	border-top: 5px solid black;
+	border-right: 5px solid black;
+	margin-top: -1%;
+	position: relative;
+}
+
+#green:hover {
+	box-shadow: 2px 2px 2px black inset;
+}
+
+/*The Blue Button*/
+#blue {
+	background-color: blue;
+	padding-top: 50%;
+	width: 50%;
+	margin-left: 49.5%;
+	margin-right: .5%;
+	margin-top: -51%;
+	opacity: 0.5;
+	border-top: 5px solid black;
+	border-left: 5px solid black;
+	position: relative;
+}
+
+#blue:hover {
+	box-shadow: 2px 2px 2px black inset;
+}
+
+/*The Start Button*/
+#start {
+	background-color: black;
+	color: white;
+	border-radius: 100%;
+	position: absolute;
+	padding: 5%;
+	margin-left: 44%;
+	margin-right: 45%;
+	margin-top: -27.5%;
+	font-family: Pocket Calculator OT;
+	border: 3px solid black;
+}
+
+/*The Button if you lose*/
+#lose {
+	color: white;
+	border-radius: 100%;
+	position: absolute;
+	padding: 5%;
+	margin-left: 44.5%;
+	margin-right: 39%;
+	margin-top: -27.5%;
+	font-family: Pocket Calculator OT;
+	border: 3px solid black;
+}

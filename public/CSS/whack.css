@@ -1,0 +1,356 @@
+/*The background image*/
+	body {
+		background-image: url(http://whackamole.dev/img/grass.png);
+	}
+
+/*The Banner*/
+	/*Most of the top*/
+		#banner {
+			background-image: url(http://whackamole.dev/img/fence1.png);
+			background-color: black;
+			background-position: center;
+			text-align: center;
+			padding-top: 1%;
+			padding-bottom: 1%;
+		}
+
+	/*The blue, clickable portion*/
+		h3 {
+			text-align: center;
+			position: relative;
+			background-color: skyblue;
+			text-shadow: 2px 2px 2px black;
+			margin-left: 31%;
+			margin-right: 31%;
+			margin-top: -2.7%;
+			margin-bottom: -0.8%;
+			padding-top: 3%;
+			padding-bottom: 3%;
+			color: green;
+			border: 3px groove black;
+		}
+
+		h3:hover {
+			background-color:skyblue;
+			box-shadow: 3px 3px 4px #0099FF inset;
+		}
+
+		h3:active {
+			background-color: #0099FF;
+			box-shadow: 3px 3px 4px skyblue inset;
+		}
+
+/*The Homeowner image*/
+	#homeowner {
+		background-image: url(http://whackamole.dev/img/homeowner.png);
+		position: absolute;
+		width: 34.9%;
+		padding-top: 44%;
+		margin-left: -35%;
+	}
+
+/*The Playing Field*/
+	/*The container for all holes*/
+		#holes {
+			margin-left: 20%;
+			margin-right: 20%;
+			padding-bottom: 0%;
+			margin-top: -46%;
+			margin-bottom: -20%;
+			background-image: url(http://whackamole.dev/img/dirt1.png);
+			cursor: url(http://whackamole.dev/img/hand.png), auto;
+		}
+
+	/*First row*/
+		.hole1 {
+			border-radius: 100%;
+			border-left: 3px solid transparent;
+			width: 32%;
+			padding-top: 32%;
+			background-position: center;
+			background-size: 270px 270px;
+			margin-bottom: 5%;
+			position: relative;
+		}
+
+	/*Second row*/
+		.hole2 {
+			border-radius: 100%;
+			width: 32%;
+			padding-top: 32%;
+			position: relative;
+			margin-left: 33.5%;
+			margin-top: -37%;
+			background-position: center;
+			background-size: 270px 270px;
+		}
+
+	/*Third row*/
+		.hole3 {
+			border-radius: 100%;
+			width: 32%;
+			padding-top: 32%;
+			position: relative;
+			margin-left: 67%;
+			margin-top: -32%;
+			background-position: center;
+			background-size: 270px 270px;
+		}
+
+/*The Start Button*/
+	/*The Button Itself*/
+		#start {
+			background-color: #663300;
+			box-shadow: 2px 2px 2px #996633 inset;
+			color: green;
+			margin-left: 0%;
+			margin-right: 90%;
+			padding: 2%;
+			text-align: center;
+			cursor: pointer;
+			border-bottom: 2px solid #996633;
+
+		}
+		#start:hover {
+			box-shadow: 3px 3px 4px #996633 inset;
+		}
+		#start:active {
+			background-color: #996633;
+			box-shadow: 3px 3px 4px #663300 inset;
+		}
+
+	/*To keep the text styling constant*/
+		a {
+			color: green;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: green;
+			text-decoration: none;
+		}
+
+/*The Timer*/
+	/*Timer Body*/
+		#timeleft {
+			background-color: #663300;
+			margin-right: 90%;
+			text-align: center;
+			color: green;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			margin-top: 1%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+	/*The Countdown*/
+		#time {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+/*Total Moles*/
+	/*Body*/
+		#totals {
+			background-color: #663300;
+			margin-right: 90%;
+			text-align: center;
+			color: green;
+			padding-top: 2%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+
+	/*Mole Counter*/
+		#totalnum {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+/*Moles Whacked*/
+	/*The Scoreboard*/
+		#scoreboard {
+			background-color: #663300;
+			color: green;
+			text-align: center;
+			margin-right: 90%;
+			padding-bottom: 2%;
+			padding-top: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+	/*The Score Counter*/
+		#score {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+/*The Grade*/
+	/*The Body*/
+		#gradecard {
+			background-color: #663300;
+			color: green;
+			text-align: center;
+			margin-right: 90%;
+			padding-bottom: 2%;
+			padding-top: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+
+	/*The Grade Counter*/
+		#grade {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+/*Difficulty*/
+	#mode {
+		background-color: #663300;
+		color: green;
+		text-align: center;
+		margin-left: 90%;
+		margin-top: 1%;
+		padding-bottom: 2%;
+		padding-top: 2%;
+		box-shadow: 2px 2px 2px #996633 inset;
+	}
+
+/*Rounds Won*/
+	/*The Body*/
+		#roundcount {
+			background-color: #663300;
+			color: green;
+			text-align: center;
+			margin-left: 90%;
+			padding-bottom: 2%;
+			padding-top: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+	/*Round Counter*/
+		#rounds {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+/*High Score*/
+	/*The Body*/
+		#highcount {
+			background-color: #663300;
+			color: green;
+			text-align: center;
+			margin-left: 90%;
+			padding-bottom: 2%;
+			padding-top: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+		
+	/*High Score Counter*/
+		#high {
+			background-color: white;
+			color: black;
+			margin-left: 20%;
+			margin-right: 20%;
+			text-align: center;
+			box-shadow: 2px 2px 2px black inset;
+		}
+
+	/*Clear High Score*/
+		#clearhigh {
+			background-color: #663300;
+			color: green;
+			text-align: center;
+			margin-left: 90%;
+			padding-bottom: 2%;
+			padding-top: 2%;
+			box-shadow: 2px 2px 2px #996633 inset;
+		}
+
+		#clearhigh:hover {
+			box-shadow: 3px 3px 4px #996633 inset;
+		}
+
+		#clearhigh:active {
+			background-color: #996633;
+			box-shadow: 3px 3px 4px #663300 inset;
+		}
+
+/*Game Manual*/
+	#manual {
+		background-color: #663300;
+		color: green;
+		text-align: center;
+		margin-left: 90%;
+		margin-top: -36%;
+		padding-bottom: 2%;
+		padding-top: 2%;
+		box-shadow: 2px 2px 2px #996633 inset;
+	}
+	#manual:hover {
+		box-shadow: 3px 3px 4px #996633 inset;
+	}
+	#manual:active {
+		box-shadow: 3px 3px 4px #663300 inset;
+		background-color: #996633;
+	}
+
+/*Images for every individual hole*/
+	.dirt {
+		background-image: url(http://whackamole.dev/img/dirt1.png);
+		opacity: 1;
+
+	}
+	#tl {
+		background-image: url(http://whackamole.dev/img/mole.png);
+		opacity: 0;
+	}
+	#tm {
+		background-image: url(http://whackamole.dev/img/realmole.png);
+		opacity: 0;
+	}
+	#tr {
+		background-image: url(http://whackamole.dev/img/mole1.png);
+		opacity: 0;
+	}
+	#ml {
+		background-image: url(http://whackamole.dev/img/mole2.png);
+		opacity: 0;
+	}
+	#mm {
+		background-image: url(http://whackamole.dev/img/mole3.png);
+		opacity: 0;
+	}
+	#mr {
+		background-image: url(http://whackamole.dev/img/mole4.png);
+		opacity: 0;
+	}
+	#bl {
+		background-image: url(http://whackamole.dev/img/mole5.png);
+		opacity: 0;
+	}
+	#bm {
+		background-image: url(http://whackamole.dev/img/mole6.png);
+		opacity: 0;
+	}
+	#br {
+		background-image: url(http://whackamole.dev/img/mole7.png);
+		opacity: 0;
+	}

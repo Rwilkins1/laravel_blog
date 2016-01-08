@@ -31,4 +31,25 @@ Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');
 
+Route::get('/calculator', 'HomeController@calculator');
+
+Route::get('/simplesimon', 'HomeController@simplesimon');
+
+Route::get('/whackamole', 'HomeController@whackamole');
+
 Route::get('/spatulacity', 'HomeController@gotospatulas');
+
+// Route::get('/spatulacity/ads');
+
+// Route::get('/spatulacity/ads/show');
+
+// Route::get('/spatulacity/login');
+
+// Route::get('/spatulacity/logout');
+
+// Route::get('/spatulacity/signup');
+
+// Route::get('/spatulacity/profile');
+
+// Route::get('')
+

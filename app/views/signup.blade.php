@@ -50,7 +50,7 @@
     						<input type="password" class="form-control" name="confirm" id="confirm">
     					</div>
     				</div>
-    				<button class = "btn btn-primary" value="submit">Sign up!</button>
+    				<button class = "btn btn-primary" value="submit"><span class="glyphicon glyphicon-thumbs-up"></span>Sign up!</button>
     			</form>
     		</div>
     	</div>

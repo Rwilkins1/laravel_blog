@@ -31,17 +31,22 @@
 		<div class = "col-md-4 sec">
 			
 			<div class = "box">
-				<h4>Simple Simon (a JavaScript game built on the jQuery library):</h4><a href="/../app/views/simplesimon/public/index.html"><img id="simplesimon" src="/img/simplesimon.png"></a></li>
+				<h4>Simple Simon (a JavaScript game built on the jQuery library):</h4><a href="{{{action('HomeController@simplesimon')}}}" target = "_blank"><img id="simplesimon" src="/img/simplesimon.png"></a></li>
 			</div>
 		</div>
 		<div class = "col-md-4 sec">
 			<div class = "box">
-				<h4>Whack-a-Mole (a JavaScript game built on the jQuery library):</h4><a href="whackamole.dev"><img id = "whackamole" src="/img/whackamole.png"></a></li>
+				<h4>Whack-a-Mole (a JavaScript game built on the jQuery library):</h4><a href="{{{action('HomeController@whackamole')}}}" target="_blank"><img id = "whackamole" src="/img/whackamole.png"></a></li>
 			</div>
 		</div>
 		<div class = "col-md-4 sec">
 			<div class = "box">
-				<h4>Spatula City (A spatula-based Adlister built in a team setting):</h4><a href="{{{action('HomeController@gotospatulas')}}}" target="_blank"><img id="spatulacity" src="/img/spatulacity.png"></a></li>
+				<h4>Spatula City (A spatula-based Adlister built in a team setting):</h4><a href="{{{action('HomeController@gotospatulas')}}}" target="_blank"><img id="spatulacity" src="/img/spat.png"></a></li>
+			</div>
+		</div>
+		<div class="col-md-4 sec">
+			<div class="box">
+				<h4>Calculator (A fully functioning JavaScript application with 14 different operators):</h4><a href="{{{action('HomeController@calculator')}}}" target="_blank"><img id="calculator" src="/img/calculator.png"></a>
 			</div>
 		</div>
 		<div class = "col-md-4">
