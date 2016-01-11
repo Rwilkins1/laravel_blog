@@ -4,7 +4,7 @@
 <div class = "row">
 	<div class = "col-md-6 col-md-offset-3 text-center">
 		<div class = "box">
-			{{Form::open(array('class' => "form-horizontal", 'method'=>"POST", 'action'=>'PostsController@update'))}}
+			{{Form::open(array('class' => "form-horizontal", 'method'=>"PUT", 'url'=>"/posts/$posttoupdate->id"))}}
 				<div class="form-group">
 					{{Form::label('title', 'Title', array('class' => 'control-label'))}}
 					<div class="col-sm-6">

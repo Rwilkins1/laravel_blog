@@ -88,7 +88,7 @@ class PostsController extends \BaseController {
 		$posttoupdate->title = Input::get('title');
 		$posttoupdate->body = Input::get('body');
 		$posttoupdate->save();
-		return View::make('/posts/allposts');
+		return Redirect::action('PostsController@index');
 	}
 
 
