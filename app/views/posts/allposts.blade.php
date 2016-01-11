@@ -29,7 +29,7 @@ function whichuser($user_id)
 				<a href="{{{action('PostsController@show', array($individualposts['id']))}}}"><h3>{{{$individualposts['title']}}}</h3></a>
 				<h4>{{{$individualposts['body']}}}</h4>
 				<p>
-				Posted by: {{{whichuser($individualposts['user_id'])}}} at {{{$individualposts['created_at']}}}
+				Posted by: {{{whichuser($individualposts['user_id'])}}} on {{{$individualposts->created_at->setTimezone('America/Chicago')->format('l, F jS Y')}}} at {{{$individualposts->created_at->setTimezone('America/Chicago')->format('h:i A')}}}
 				</p>
 				<a href="{{{action('PostsController@edit', array($individualposts['id']))}}}"><button class="btn btn-primary">Edit this post</button></a>
 
