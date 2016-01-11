@@ -72,7 +72,7 @@ class PostsController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 			$newpost->save();
-			return View::make('/posts/allposts');
+			return Redirect::action('PostsController@index');
 		}
 	}
 

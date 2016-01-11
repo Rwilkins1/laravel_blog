@@ -16,23 +16,23 @@ if($newpost->title != null) {
 		<div class = "box">
 			{{{$errors->first('title', ':message')}}}
 			{{{$errors->first('body', ':message')}}}
-			<form class = "form-horizontal" method = "POST" action="{{{action('PostsController@store')}}}">
+			{{Form::open(array('class' => "form-horizontal", 'method' => "POST", 'action'=> 'PostsController@store'))}}
 					<div class ="form-group">
-						<label class = "control-label" for "title">Title</label>
+						{{Form::label('title', 'Title', array('class' => "control-label"))}}
 						<div class="col-sm-6">
-							<input class = "form-control" type="text" name="title" id="title" value="{{{Input::old('title')}}}">
+							{{Form::text('title', '', array('class' => 'form-control'))}}
 						</div>
 					</div>
 				<p>
 					<div class = "form-group">
-						<label class = "control-label" for "body">Body</label>
+						{{Form::label('body', 'Body', array('class' => 'control-label'))}}
 						<div class="col-sm-6">
-							<textarea class="form-control" name="body" id="body" placeholder = "{{{Input::old('body')}}}"></textarea>
+							{{Form::textarea('body', '', array('class' => 'form-control'))}}
 						</div>
 					</div>
 				</p>
 				<button class = "btn btn-primary" value="submit">Submit</button>
-			</form>
+			{{Form::close()}}
 		</div>
 	</div>
 </div>
