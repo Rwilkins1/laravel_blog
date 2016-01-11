@@ -10,7 +10,6 @@ class UserTableSeeder extends Seeder
 		$user->email = $_ENV['USER_EMAIL'];
 		$user->phone = $_ENV['USER_PHONE'];
 		$user->password = Hash::make($_ENV['USER_PASS']);
-		$user->birthday = $_ENV['USER_BIRTH'];
 		$user->save();
 	}
 }

@@ -14,6 +14,8 @@ if($newpost->title != null) {
 <div class = "box">
 	<div class = "col-md-6 col-md-offset-3 text-center">
 		<div class = "box">
+			{{{$errors->first('title', ':message')}}}
+			{{{$errors->first('body', ':message')}}}
 			<form class = "form-horizontal" method = "POST" action="{{{action('PostsController@store')}}}">
 					<div class ="form-group">
 						<label class = "control-label" for "title">Title</label>

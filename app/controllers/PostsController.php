@@ -9,7 +9,12 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('/posts/allposts');
+		$posts = Post::paginate(4);
+		// $stmt = $dbc->prepare('SELECT username FROM users WHERE id = :id');
+		// $stmt->bindValue(':id', $posts['user_id']);
+		// $stmt->execute();
+
+		return View::make('/posts/allposts')->with('posts', $posts);
 	}
 
 
@@ -24,18 +29,6 @@ class PostsController extends \BaseController {
 	}
 
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$newpost = new Post();
-		$newpost->title = Input::get('title');
-		$newpost->body = Input::get('body');
-		$newpost->save();
-	}
 
 
 	/**
@@ -59,9 +52,29 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('editpost');
+		$posttoupdate = Post::find($id);
+		return View::make('editposts')->with('posttoupdate', $posttoupdate);
 	}
 
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+		$newpost = new Post();
+		$newpost->title = Input::get('title');
+		$newpost->body = Input::get('body');
+
+		if($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else {
+			$newpost->save();
+			return View::make('/posts/allposts');
+		}
+	}
 
 	/**
 	 * Update the specified resource in storage.
@@ -87,7 +100,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "delete this post";
+		$post = Post::find($id);
+		$post->delete();
+		return View::make('/posts/allposts');
 	}
 
 

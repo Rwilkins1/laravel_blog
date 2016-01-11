@@ -27,6 +27,8 @@ Route::get('/signup', 'HomeController@signup');
 
 Route::resource('/posts', 'PostsController');
 
+Route::resource('/user', 'UsersController');
+
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');

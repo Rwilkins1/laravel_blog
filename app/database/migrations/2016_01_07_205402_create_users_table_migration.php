@@ -20,7 +20,6 @@ class CreateUsersTableMigration extends Migration {
 			$table->string('username', 255)->unique();
 			$table->string('email', 150)->unique();
 			$table->string('password', 255);
-			$table->date('birthday');
 			$table->string('phone', 20)->nullable();
 			$table->timestamps();
 		});
