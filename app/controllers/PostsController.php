@@ -100,9 +100,8 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$post = Post::find($id);
-		$post->delete();
-		return View::make('/posts/allposts');
+		Post::destroy($id);
+		return Redirect::action('PostsController@index');
 	}
 
 

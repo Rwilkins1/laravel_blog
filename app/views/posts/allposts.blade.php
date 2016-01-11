@@ -6,19 +6,38 @@ function whichuser($user_id)
 	return $user['username'];
 }
 ?>
+
+@section('top-script')
+<style type="text/css">
+	h3 {
+		color: black;
+		text-decoration: none;
+	}
+	h3:hover {
+		color: blue;
+		text-decoration: none;
+		text-shadow: 5px 5px 5px black;
+	}
+</style>
+@stop
+
 @section('content')
 <div class = "row">
 	<div class = "col-md-12 col-sm-8 text-center">
 		@foreach($posts as $individualposts)
 			<div class = "box">
-				<h3>{{{$individualposts['title']}}}</h3>
+				<a href="{{{action('PostsController@show', array($individualposts['id']))}}}"><h3>{{{$individualposts['title']}}}</h3></a>
 				<h4>{{{$individualposts['body']}}}</h4>
 				<p>
 				Posted by: {{{whichuser($individualposts['user_id'])}}} at {{{$individualposts['created_at']}}}
 				</p>
-				<a href="{{{action('PostsController@show', array($individualposts['id']))}}}"><button class = "btn btn-primary">View this post</button></a>
 				<a href="{{{action('PostsController@edit', array($individualposts['id']))}}}"><button class="btn btn-primary">Edit this post</button></a>
-				<a href="{{{action('PostsController@destroy', array($individualposts['id']))}}}"><button class = "btn btn-danger">Delete this post</button></a>
+
+				{{Form::open(array('url' => "/posts/$individualposts->id"))}}
+					{{Form::hidden('_method', 'DELETE')}}
+					{{Form::submit('Delete this Post', array('class' => 'btn btn-danger'))}}
+				{{Form::close()}}
+				{{-- <a href="{{{action('PostsController@destroy', array($individualposts['id']))}}}"><button class = "btn btn-danger">Delete this post</button></a> --}}
 			</div>
 		@endforeach
 		<div class = "box">

@@ -4,21 +4,21 @@
 <div class = "row">
 	<div class = "col-md-6 col-md-offset-3 text-center">
 		<div class = "box">
-			<form class = "form-horizontal" method="PATCH" action="{{{action('PostsController@update')}}}">
+			{{Form::open(array('class' => "form-horizontal", 'method'=>"POST", 'action'=>'PostsController@update'))}}
 				<div class="form-group">
-					<label class="control-label" for "title">Title</label>
+					{{Form::label('title', 'Title', array('class' => 'control-label'))}}
 					<div class="col-sm-6">
-						<input class="form-control" type="text" name="title" id="title" value="{{{$posttoupdate['title']}}}">
+						{{Form::text('title', "$posttoupdate->title", array('class' => 'form-control'))}}
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for "body">Body</label>
+					{{Form::label('body', 'Body', array('class' => 'control-label'))}}
 					<div class="col-sm-6">
-						<textarea class="form-control" name="body" id="body" placeholer="{{{$posttoupdate['body']}}}">{{{$posttoupdate['body']}}}</textarea>
+						{{Form::textarea('body', "$posttoupdate->body", array('class' => 'form-control'))}}
 					</div>
 				</div>
 				<button class="btn btn-primary" value="submit">Update</button>
-			</form>
+			{{Form::close()}}
 		</div>
 	</div>
 </div>
