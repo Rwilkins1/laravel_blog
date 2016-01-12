@@ -113,6 +113,10 @@ class UsersController extends BaseController {
 			return Redirect::back()->withInput()->withErrors($validator)->with('class', $class);
 		} else {
 			$newuser->save();
+			$username = $newuser->username;
+			Mail::send('emailbody', array('username' => $username), function($message) {
+				$message->to(Input::get('email'), Input::get('username'))->subject('Welcome to the Reagan Wilkins blog!');
+			});
 			$class="errormessage";
 			return Redirect::action('UsersController@showloginpage')->with('class', $class);
 		}
