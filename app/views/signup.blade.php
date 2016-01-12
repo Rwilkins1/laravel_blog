@@ -7,7 +7,13 @@
     		<div class = "col-lg-12 text-center">
     			<h2 class = "intro-text">Please enter<strong> the information below to sign up!</strong>
     			</h2>
-    			<form role="form" action="/login" method="POST">
+    			<div class = "errormessage">{{{$errors->first('username', ':message')}}}</div>
+    			<div class = "errormessage">{{{$errors->first('email', ':message')}}}</div>
+    			<div class = "errormessage">{{{$errors->first('phone', ':message')}}}</div>
+    			<div class = "errormessage">{{{$errors->first('firstname', ':message')}}}</div>
+    			<div class = "errormessage">{{{$errors->first('lastname', ':message')}}}</div>
+    			<div class = "errormessage">{{{$errors->first('password', ':message')}}}</div>
+    			<form role="form" action="{{{action('UsersController@store')}}}" method="POST">
     				<div class = "row">
     					<div class="form-group col-lg-4 col-lg-offset-4">
     						<label for "username">Username</label>
@@ -20,22 +26,22 @@
     						<input type="text" class = "form-control" name="email" id="email">
     					</div>
     				</div>
-    				<div class = "row">
+    				<div class="row">
     					<div class="form-group col-lg-4 col-lg-offset-4">
-    						<label for "first_name">First Name</label>
-    						<input type="text" class = "form-control" name="first_name" id="first_name">
+    						<label for "phone">Phone Number</label>
+    						<input type="text" class="form-control" name="phone" id="phone">
     					</div>
     				</div>
     				<div class = "row">
     					<div class="form-group col-lg-4 col-lg-offset-4">
-    						<label for "last_name">Last Name</label>
-    						<input type="text" class = "form-control" name="last_name" id="last_name">
+    						<label for "firstname">First Name</label>
+    						<input type="text" class = "form-control" name="firstname" id="firstname">
     					</div>
     				</div>
     				<div class = "row">
     					<div class="form-group col-lg-4 col-lg-offset-4">
-    						<label for "username">Username</label>
-    						<input type="text" class = "form-control" name="username" id="username">
+    						<label for "lastname">Last Name</label>
+    						<input type="text" class = "form-control" name="lastname" id="lastname">
     					</div>
     				</div>
     				<div class = "row">

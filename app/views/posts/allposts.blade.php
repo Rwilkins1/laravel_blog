@@ -20,14 +20,13 @@ function whichuser($user_id)
 	}
 </style>
 @stop
-
 @section('content')
 <div class = "row">
 	<div class = "col-md-12 col-sm-8 text-center">
 		@foreach($posts as $individualposts)
 			<div class = "box">
 				<a href="{{{action('PostsController@show', array($individualposts['id']))}}}"><h3>{{{$individualposts['title']}}}</h3></a>
-				<h4>{{{$individualposts['body']}}}</h4>
+				<h4>{{{ Str::limit($individualposts['body'], 60)}}}</h4>
 				<p>
 				Posted by: {{{whichuser($individualposts['user_id'])}}} on {{{$individualposts->created_at->setTimezone('America/Chicago')->format('l, F jS Y')}}} at {{{$individualposts->created_at->setTimezone('America/Chicago')->format('h:i A')}}}
 				</p>
@@ -37,7 +36,6 @@ function whichuser($user_id)
 					{{Form::hidden('_method', 'DELETE')}}
 					{{Form::submit('Delete this Post', array('class' => 'btn btn-danger'))}}
 				{{Form::close()}}
-				{{-- <a href="{{{action('PostsController@destroy', array($individualposts['id']))}}}"><button class = "btn btn-danger">Delete this post</button></a> --}}
 			</div>
 		@endforeach
 		<div class = "box">

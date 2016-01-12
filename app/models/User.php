@@ -23,4 +23,37 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public static $rules = array(
+		'firstname' => 'required',
+		'lastname' => 'required',
+		'username' => 'required|max:100',
+		'password' => 'required',
+		'phone' => 'required',
+		'email' => 'required|email',
+	);
+
+	public static $editrules = array(
+		'firstname' => 'required',
+		'lastname' => 'required',
+		'username' => 'required',
+		'phone' => 'required',
+		'email' => 'required|email',
+	);
+
+	public static function finduserbyusername($username)
+    {
+    	$query = DB::table('users');
+    	$query->where('username', $username);
+    	return $results = $query->get();
+    }
+
+    public static function check($username)
+	{
+		if(User::finduserbyusername($username) != null) {
+			Session::put('loggedinuser', $username);
+			return Redirect::action('UsersController@show');
+		} else {
+			return Redirect::back()->withInput();
+		}
+	}
 }

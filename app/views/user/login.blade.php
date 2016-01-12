@@ -1,8 +1,4 @@
 @extends('layouts.master')
-<?php
-	// $username = Input::get('username');
-	// User::check($username);
-?>
 @section('content')
 <div class="container">
         <div class = "row">
@@ -10,7 +6,7 @@
         		<div class = "col-lg-12 text-center">
         			<h2 class = "intro-text">Enter<strong> your information</strong>
         			</h2>
-        			<form role="form" url= "/login" method="POST">
+        			<form role="form" action="{{{action('PostsController@index')}}}" method="POST">
         				<div class = "row">
         					<div class="form-group col-lg-4 col-lg-offset-4">
         						<label for "username">Username</label>

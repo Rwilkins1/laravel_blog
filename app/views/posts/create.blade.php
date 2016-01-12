@@ -10,12 +10,17 @@ if($newpost->title != null) {
 	}
 }
 ?> --}}
+@section('top-script')
+<style type="text/css">
+	
+</style>
+@stop
 @section('content')
 <div class = "box">
 	<div class = "col-md-6 col-md-offset-3 text-center">
 		<div class = "box">
-			{{{$errors->first('title', ':message')}}}
-			{{{$errors->first('body', ':message')}}}
+			<div class="errormessage">{{{$errors->first('title', ':message')}}}</div>
+			<div class="errormessage">{{{$errors->first('body', ':message')}}}</div>
 			{{Form::open(array('class' => "form-horizontal", 'method' => "POST", 'action'=> 'PostsController@store'))}}
 					<div class ="form-group">
 						{{Form::label('title', 'Title', array('class' => "control-label"))}}

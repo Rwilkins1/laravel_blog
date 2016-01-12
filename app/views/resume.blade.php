@@ -12,9 +12,10 @@
 		background-color: gold;
 		padding-bottom: 2%;*/
 	}
-	li {
-
-	}
+	h5 {
+        margin-top: 15px;
+        margin-bottom: -5px;
+    }
 	.inner {
 		background-color: #C0C0C0;
         padding-top: 20px;
@@ -67,13 +68,15 @@
         <div class = "box">
             <h4 id="heading1"><strong>Education and Academic Honors</strong></h4>
             <ul id="list1">
-                <li>Trinity University, San Antonio, TX</li>
-                <li>Bachelor of Arts, May 2015</li>
-                <li>Cumulative GPA: 3.564</li>
-                <li>Major - Religion; Minor - Creative Writing</li>
-                <li>National Society of Collegiate Scholars</li>
-                <li>Dean's List</li>
-                <li>Codeup Full-Stack Bootcamp, September 2015-February 2016</li>
+                <h5><li>Trinity University, San Antonio, TX</li></h5>
+                <li>-Bachelor of Arts, May 2015</li>
+                <li>-Cumulative GPA: 3.564</li>
+                <li>-Major: Religion; Minor: Creative Writing</li>
+                <h5><li>National Society of Collegiate Scholars</li></h5>
+                <li>-Member, Spring 2013-Spring 2015</li>
+                <h5><li>Dean's List</li></h5>
+                <li>-Member, Spring 2014-Spring 2015</li>
+                <h5><li>Codeup Full-Stack Bootcamp, September 2015-February 2016</li></h5>
             </ul>
         </div>
 	</div>
@@ -119,6 +122,11 @@
                 <li>Laravel
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                    </div>
+                </li>
+                <li>Angular
+                    <div class = "progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
                     </div>
                 </li>
 			</ul>

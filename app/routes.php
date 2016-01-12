@@ -29,6 +29,20 @@ Route::resource('/posts', 'PostsController');
 
 Route::resource('/user', 'UsersController');
 
+Route::get('/login', 'UsersController@showloginpage');
+
+Route::post('/login', 'UsersController@dologinpage');
+
+Route::get('/logout', 'UsersController@logout');
+
+Route::get('/editprofile', 'UsersController@editprofile');
+
+Route::post('/editprofile', 'UsersController@updateprofile');
+
+// Route::get('/check', 'UsersController@check');
+
+Route::get('/user/show/{id}', 'UsersController@show');
+
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');

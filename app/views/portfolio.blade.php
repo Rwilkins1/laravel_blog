@@ -66,14 +66,3 @@
 </div> --}}
 </div>
 @stop
-
-@section('bottom-script')
-	<script>
-		$("#simplesimon").click(function() {
-			window.location.href = '../simplesimon.dev';
-		});
-		$("#whackamole").click(function() {
-			window.location.href = '../whackamole.dev';
-		});
-	</script>
-@stop

@@ -17,11 +17,20 @@
 			border: 5px double black;
 			border-radius: 20%;
 		}
+		.brand {
+			color: white;
+		}
+		.errormessage {
+		background-color: red;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+		margin-bottom: 10px;
+	}
 	</style>
 	@yield('top-script')
 </head>
 <body>
-	<div class="brand">Reagan Wilkins</div>
+	<div class="brand"><a href="{{{action('HomeController@showWelcome')}}}">Reagan Wilkins</a></div>
     <div class="address-bar">1009 Garraty Road | San Antonio, TX 78209 | 979-224-0816</div>
 	<!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -40,8 +49,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    {{-- <li>
                         <a href="{{{action('HomeController@showWelcome')}}}">Home</a>
+                    </li> --}}
+                    <li>
+                    	<a href="{{{action('PostsController@index')}}}">Posts</a>
                     </li>
                     <li>
                         <a href="{{{action('HomeController@showResume')}}}">Resume</a>
@@ -49,12 +61,19 @@
                     <li>
                         <a href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
                     </li>
+                    @if(Session::has('loggedinuser') == false)
+	                    <li>
+	                    	<a href="{{{action('UsersController@showloginpage')}}}">Log In</a>
+	                    </li>
+	                    <li>
+	                    	<a href="{{{action('HomeController@signup')}}}">Sign Up</a>
+	                    </li>
+                    @endif
+                    @if(Session::has('loggedinuser'))
                     <li>
-                    	<a href="{{{action('HomeController@login')}}}">Log In</a>
+                    	<a href="{{{action('UsersController@index')}}}">Your Profile</a>
                     </li>
-                    <li>
-                    	<a href="{{{action('HomeController@signup')}}}">Sign Up</a>
-                    </li>
+                    @endif
                     <li>
                         <a href="{{{action('HomeController@showContact')}}}">Contact Me!</a>
                     </li>
