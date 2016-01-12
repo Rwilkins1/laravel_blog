@@ -30,12 +30,14 @@ function whichuser($user_id)
 				<p>
 				Posted by: {{{whichuser($individualposts['user_id'])}}} on {{{$individualposts->created_at->setTimezone('America/Chicago')->format('l, F jS Y')}}} at {{{$individualposts->created_at->setTimezone('America/Chicago')->format('h:i A')}}}
 				</p>
+				@if(whichuser($individualposts['user_id']) == Session::get('loggedinuser'))
 				<a href="{{{action('PostsController@edit', array($individualposts['id']))}}}"><button class="btn btn-primary">Edit this post</button></a>
 
 				{{Form::open(array('url' => "/posts/$individualposts->id"))}}
 					{{Form::hidden('_method', 'DELETE')}}
 					{{Form::submit('Delete this Post', array('class' => 'btn btn-danger'))}}
 				{{Form::close()}}
+				@endif
 			</div>
 		@endforeach
 		<div class = "box">

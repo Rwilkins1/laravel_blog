@@ -38,7 +38,8 @@ class UsersController extends BaseController {
 
 	public function create() 
 	{
-		return View::make('/users/create');
+		$class = "errormessage";
+		return View::make('/users/create')->with('class', $class);
 	}
 
 	public function show($id)
@@ -95,10 +96,12 @@ class UsersController extends BaseController {
 		$newuser->email = Input::get('email');
 
 		if($validator->fails()) {
-			return Redirect::back()->withInput()->withErrors($validator);
+			$class = "alert alert-danger";
+			return Redirect::back()->withInput()->withErrors($validator)->with('class', $class);
 		} else {
 			$newuser->save();
-			return Redirect::action('UsersController@showloginpage');
+			$class="errormessage";
+			return Redirect::action('UsersController@showloginpage')->with('class', $class);
 		}
 		
 	}

@@ -25,7 +25,11 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('/posts/create');
+        if(Session::has('loggedinuser')) {
+    		return View::make('/posts/create');
+        } else {
+            return Redirect::action('UsersController@showloginpage');
+        }
 	}
 
 
@@ -64,9 +68,13 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
-		$newpost = new Post();
+		$user = Session::get('loggedinuser');
+        $userid = DB::table('users')->where('username', $user)->pluck('id');
+        $userinfo = User::find($userid);
+        $newpost = new Post();
 		$newpost->title = Input::get('title');
 		$newpost->body = Input::get('body');
+        $newpost->user_id = $userinfo->id;
 
 		if($validator->fails()) {
 			return Redirect::back()->withInput()->withErrors($validator);
