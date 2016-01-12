@@ -18,6 +18,9 @@ function whichuser($user_id)
 		text-decoration: none;
 		text-shadow: 5px 5px 5px black;
 	}
+	.btn-primary {
+		margin-bottom: 15px;
+	}
 </style>
 @stop
 @section('content')

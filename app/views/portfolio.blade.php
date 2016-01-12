@@ -36,7 +36,7 @@
 		</div>
 		<div class = "col-md-4 sec">
 			<div class = "box">
-				<h4>Whack-a-Mole (a JavaScript game built on the jQuery library):</h4><a href="{{{action('HomeController@whackamole')}}}" target="_blank"><img id = "whackamole" src="/img/whackamole.png"></a></li>
+				<h4>Whack-a-Mole (a JS game built on the jQuery library):</h4><a href="{{{action('HomeController@whackamole')}}}" target="_blank"><img id = "whackamole" src="/img/whackamole.png"></a></li>
 			</div>
 		</div>
 		<div class = "col-md-4 sec">

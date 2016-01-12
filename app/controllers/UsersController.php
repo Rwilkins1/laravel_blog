@@ -6,14 +6,19 @@ class UsersController extends BaseController {
 			$user = Session::get('loggedinuser');
 			$userid = DB::table('users')->where('username', $user)->pluck('id');
 			$userinfo = User::find($userid);
-			return View::make('yourprofile')->with('userinfo', $userinfo);
+			$posts = Post::paginate(4);
+			return View::make('yourprofile')->with('userinfo', $userinfo)->with('posts', $posts);
 		} else {
 			return Redirect::action('UsersController@showloginpage');
 		}
 	}
 	public function showloginpage()
 	{
-		return View::make('login');
+		if(!Session::has('loggedinuser')) {
+			return View::make('login');
+		} else {
+			return Redirect::action('UsersController@index');
+		}
 	}
 	public function dologinpage()
 	{
@@ -32,20 +37,28 @@ class UsersController extends BaseController {
 
 	public function logout()
 	{
-		Session::forget('loggedinuser');
-		return Redirect::action('HomeController@showWelcome');
+		if(Session::has('loggedinuser')) {
+			Session::forget('loggedinuser');
+			return Redirect::action('HomeController@showWelcome');
+		} else {
+			return Redirect::action('UsersController@showloginpage');
+		}
 	}
 
 	public function create() 
 	{
-		$class = "errormessage";
-		return View::make('/users/create')->with('class', $class);
+		if(!Session::has('loggedinuser')) {
+			return View::make('/users/create');
+		} else {
+			return Redirect::action('UsersController@index');
+		}
 	}
 
 	public function show($id)
 	{
 		$user = User::find($id);
-		return View::make('showuser')->with('user', $user);
+		$posts = Post::paginate(4);
+		return View::make('showuser')->with('user', $user)->with('posts', $posts);
 	}
 
 	public function editprofile()
