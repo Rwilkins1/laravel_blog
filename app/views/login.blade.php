@@ -1,8 +1,13 @@
 @extends('layouts.master')
-<?php
-	// $username = Input::get('username');
-	// User::check($username);
-?>
+
+@section('top-script')
+<style>
+	.btn-primary {
+		margin-bottom: 5px;
+	}
+</style>
+@stop
+
 @section('content')
 <div class="container">
         <div class = "row">
@@ -25,6 +30,7 @@
         				</div>
         				<button class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>Log in!</button>
         			</form>
+        				<a href="{{{action('UsersController@forgotpassword')}}}"><button class="btn btn-warning">Forgot Password?</button></a>
         		</div>
         	</div>
         </div>

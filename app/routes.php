@@ -43,6 +43,10 @@ Route::get('/forgotpassword', 'UsersController@forgotpassword');
 
 Route::post('/forgotpassword', 'UsersController@remind');
 
+Route::get('/updatepassword', 'UsersController@showpassword');
+
+Route::post('/updatepassword', 'UsersController@updatepassword');
+
 // Route::get('/check', 'UsersController@check');
 
 Route::get('/user/show/{id}', 'UsersController@show');

@@ -12,6 +12,32 @@ class UsersController extends BaseController {
 			return Redirect::action('UsersController@showloginpage');
 		}
 	}
+
+	public function showpassword()
+	{
+		if(Session::has('loggedinuser')) {
+			return View::make('updatepassword');
+		} else {
+			return Redirect::action('UsersController@login');
+		}
+	}
+
+	public function updatepassword()
+	{
+		$user = Session::get('loggedinuser');
+		$userid = DB::table('users')->where('username', $user)->pluck('id');
+		$updateduser = User::find($userid);
+		$newpassword = Input::get('password');
+		if($newpassword == Input::get('confirm')) {
+			$updateduser->password = Hash::make($newpassword);
+			$updateduser->save();
+			Session::flash('successMessage', 'Password successfully updated');
+			return Redirect::action('UsersController@index');
+		} else {
+			Session::flash('errorMessage', 'Your passwords do not match!');
+			return Redirect::back();
+		}
+	}
 	public function forgotpassword()
 	{
 		if(!Session::has('loggedinuser')) {
@@ -74,8 +100,10 @@ class UsersController extends BaseController {
 
 		if(Auth::attempt($userdata)) {
 			Session::put('loggedinuser', Input::get('username'));
+			Session::flash('successMessage', "Welcome back, " . Session::get('loggedinuser') . "!");
 			return Redirect::action('PostsController@index');
 		} else {
+			Session::flash('errorMessage', 'Your username or password is incorrect');
 			return Redirect::to('login');
 		}
 	}
@@ -84,6 +112,7 @@ class UsersController extends BaseController {
 	{
 		if(Session::has('loggedinuser')) {
 			Session::forget('loggedinuser');
+			Session::flash('successMessage', 'Goodbye!');
 			return Redirect::action('HomeController@showWelcome');
 		} else {
 			return Redirect::action('UsersController@showloginpage');
@@ -132,11 +161,13 @@ class UsersController extends BaseController {
 			$usertoupdate->email = Input::get('email');
 
 			if($validator->fails()) {
+				Session::flash('errormessage', 'Sorry, some of your inputs are incorrect');
 				return Redirect::back()->withInput()->withErrors($validator);
 			} else {
 				$usertoupdate->save();
 				Session::forget('loggedinuser');
 				Session::put('loggedinuser', $usertoupdate->username);
+				Session::flash('successMessage', 'Profile successfully updated!');
 				return Redirect::action('UsersController@index');
 			}
 		}
