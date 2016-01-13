@@ -39,6 +39,10 @@ Route::get('/editprofile', 'UsersController@editprofile');
 
 Route::post('/editprofile', 'UsersController@updateprofile');
 
+Route::get('/forgotpassword', 'UsersController@forgotpassword');
+
+Route::post('/forgotpassword', 'UsersController@remind');
+
 // Route::get('/check', 'UsersController@check');
 
 Route::get('/user/show/{id}', 'UsersController@show');

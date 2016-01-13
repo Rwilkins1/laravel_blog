@@ -36,10 +36,10 @@ function whichuser($user_id)
 				@if(whichuser($individualposts['user_id']) == Session::get('loggedinuser'))
 				<a href="{{{action('PostsController@edit', array($individualposts['id']))}}}"><button class="btn btn-primary">Edit this post</button></a>
 
-				{{Form::open(array('url' => "/posts/$individualposts->id"))}}
+				{{Form::open(array('url' => "/posts/$individualposts->id", 'id' => 'deleteform'))}}
 					{{Form::hidden('_method', 'DELETE')}}
-					{{Form::submit('Delete this Post', array('class' => 'btn btn-danger'))}}
 				{{Form::close()}}
+					<button class ="btn btn-danger" id="deleter" data-id="{{{$individualposts->id}}}" data-name="{{{$individualposts->title}}}">Delete this Post!</button>
 				@endif
 			</div>
 		@endforeach
@@ -49,4 +49,18 @@ function whichuser($user_id)
 	<a href="/posts/create"><button class = "btn btn-primary">Create a post!</button></a>
 	</div>
 </div>
+@stop
+
+@section('bottom-script')
+<script src="/js/jquery.js"></script>
+<script>
+"Use Strict";
+	$("#deleter").click(function() {
+		var postid = $(this).data("id");
+		var posttitle = $(this).data("name");
+		if(confirm("Are you sure you want to delete: " + posttitle + "?")) {
+			$("#deleteform").submit();
+		}
+	});
+</script>
 @stop

@@ -12,6 +12,51 @@ class UsersController extends BaseController {
 			return Redirect::action('UsersController@showloginpage');
 		}
 	}
+	public function forgotpassword()
+	{
+		if(!Session::has('loggedinuser')) {
+			return View::make('forgotpassword');
+		} else {
+			return Redirect::action('UsersController@index');
+		}
+	}
+
+	public function remind()
+	{
+		$phone = Input::get('phone');
+		$username = Input::get('username');
+		$email = Input::get('email');
+		$userdata = DB::table('users')->where('email', $email)->pluck('email');
+		$userid = DB::table('users')->where('email', $email)->pluck('id');
+		$userphone = DB::table('users')->where('email', $email)->pluck('phone');
+		$userusername = DB::table('users')->where('email', $email)->pluck('username');
+		if($userdata != null) {
+			if($phone == $userphone) {
+				if($username == $userusername) {
+					$user = User::find($userid);
+					$passwordsarray = ['temporary', 'security', 'newpassword', 'robot', 'rubberduck', 'bigbird', 'blacklab', 'foobar', 'fizzbuzz', 'newvariable'];
+					$random = mt_rand(1, 10);
+					$password = $passwordsarray[$random];
+					$user->password = Hash::make($password);
+					$user->save();
+					Mail::send('emailpassword', array('username' => $username, 'password' => $password), function($message) {
+						$message->to(Input::get('email'), Input::get('username'))->subject('Password reset');
+					});
+					Session::flash('successMessage', 'Check your inbox for the necessary information');
+					return Redirect::action('UsersController@showloginpage');
+				} else {
+					Session::flash('errorMessage', 'Your username is incorrect');
+					return Redirect::back();
+				}
+			} else {
+				Session::flash('errorMessage', 'Your phone number is incorrect');
+				return Redirect::back();
+			}
+		} else {
+			Session::flash('errorMessage', 'Your email address is invalid');
+			return Redirect::back();
+		}
+	}
 	public function showloginpage()
 	{
 		if(!Session::has('loggedinuser')) {
@@ -108,7 +153,7 @@ class UsersController extends BaseController {
 		$newuser->password = Hash::make(Input::get('password'));
 		$newuser->email = Input::get('email');
 
-		if($validator->fails()) {
+		if($validator->fails() || Input::get('password') != Input::get('confirm')) {
 			$class = "alert alert-danger";
 			return Redirect::back()->withInput()->withErrors($validator)->with('class', $class);
 		} else {

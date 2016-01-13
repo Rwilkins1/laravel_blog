@@ -77,9 +77,11 @@ class PostsController extends \BaseController {
         $newpost->user_id = $userinfo->id;
 
 		if($validator->fails()) {
+            Session::flash('errorMessage', 'One or more of your inputs does not meet the requirements');
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 			$newpost->save();
+            Session::flash('successMessage', 'You\'ve successfully posted!');
 			return Redirect::action('PostsController@index');
 		}
 	}
