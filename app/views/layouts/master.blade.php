@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="{{{action('HomeController@showWelcome')}}}">Reagan's Blog</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -61,7 +61,7 @@
                     <li>
                         <a href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
                     </li>
-                    @if(Session::has('loggedinuser') == false)
+                    @if(Auth::check() == false)
 	                    <li>
 	                    	<a href="{{{action('UsersController@showloginpage')}}}">Log In</a>
 	                    </li>
@@ -69,7 +69,7 @@
 	                    	<a href="{{{action('HomeController@signup')}}}">Sign Up</a>
 	                    </li>
                     @endif
-                    @if(Session::has('loggedinuser'))
+                    @if(Auth::check())
                     <li>
                     	<a href="{{{action('UsersController@index')}}}">Your Profile</a>
                     </li>
@@ -83,9 +83,17 @@
         </div>
         <!-- /.container -->
     </nav>
+    @if (Session::has('successMessage'))
+	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+	@endif
+	@if (Session::has('errorMessage'))
+	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+	@endif
 	@yield('content')
 	
 	<script src="/js/jquery.js"></script>
+	<script src="/theme/js/bootstrap.js"></script>
+	<script src="/theme/js/bootstrap.min.js"></script>
 	@yield('bottom-script')
 </body>
 </html>

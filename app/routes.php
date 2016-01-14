@@ -27,6 +27,8 @@ Route::get('/signup', 'HomeController@signup');
 
 Route::resource('/posts', 'PostsController');
 
+Route::post('/posts/search/{title}', 'PostsController@search');
+
 Route::resource('/user', 'UsersController');
 
 Route::get('/login', 'UsersController@showloginpage');

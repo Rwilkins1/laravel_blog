@@ -21,6 +21,7 @@ class CreateUsersTableMigration extends Migration {
 			$table->string('email', 150)->unique();
 			$table->string('password', 255);
 			$table->string('phone', 20)->nullable();
+			$table->rememberToken();
 			$table->timestamps();
 		});
 	}
@@ -32,6 +33,7 @@ class CreateUsersTableMigration extends Migration {
 	 */
 	public function down()
 	{
+		// Schema::dropColumn('rememberToken');
 		Schema::drop('users');
 	}
 

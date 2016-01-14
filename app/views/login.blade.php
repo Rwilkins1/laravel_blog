@@ -18,8 +18,8 @@
         			<form role="form" url= "/login" method="POST">
         				<div class = "row">
         					<div class="form-group col-lg-4 col-lg-offset-4">
-        						<label for "username">Username</label>
-        						<input type="text" class = "form-control" name="username" id="username">
+        						<label for "email">Email</label>
+        						<input type="text" class = "form-control" name="email" id="email">
         					</div>
         				</div>
         				<div class = "row">

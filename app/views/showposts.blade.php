@@ -6,7 +6,7 @@
 		<div class = "box">
 			<h3>{{{$post['title']}}}</h3>
 			<h4>{{{$post['body']}}}</h4>
-			{{{$post['created_at']}}}
+			Created: {{{$post->created_at->format('l, F jS Y')}}}
 		</div>
 	</div>
 </div>

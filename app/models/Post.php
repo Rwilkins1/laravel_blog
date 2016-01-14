@@ -1,5 +1,6 @@
 <?php
-class Post extends Eloquent
+use Carbon\Carbon;
+class Post extends baseModel
 {
 	protected $table = 'posts';
 
@@ -7,5 +8,10 @@ class Post extends Eloquent
 		'title' => 'required|max:100',
 		'body' => 'required|max:10000'
 	);
+
+	public function user()
+	{
+	    return $this->belongsTo('User');
+	}
 }
 ?>

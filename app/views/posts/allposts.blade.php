@@ -1,11 +1,4 @@
 @extends('layouts.master')
-<?php
-function whichuser($user_id)
-{
-	$user = User::find($user_id);
-	return $user['username'];
-}
-?>
 
 @section('top-script')
 <style type="text/css">
@@ -26,14 +19,23 @@ function whichuser($user_id)
 @section('content')
 <div class = "row">
 	<div class = "col-md-12 col-sm-8 text-center">
+		<div class="box">
+			<form class="form-horizontal col-md-4 col-md-offset-4" method="POST" action="{{{action('PostsController@search')}}}">
+				<div class="form-group">
+					<label class="control-label" for "title">Search for a post by title</label>
+					<input type="text" class="form-control" id="title" name="title">
+					<button class="btn btn-primary">Search</button>
+				</div>
+			</form>
+		</div>
 		@foreach($posts as $individualposts)
 			<div class = "box">
-				<a href="{{{action('PostsController@show', array($individualposts['id']))}}}"><h3>{{{$individualposts['title']}}}</h3></a>
-				<h4>{{{ Str::limit($individualposts['body'], 60)}}}</h4>
+				<a href="{{{action('PostsController@show', $individualposts->id)}}}"><h3>{{{$individualposts->title}}}</h3></a>
+				<h4>{{{ Str::limit($individualposts->body, 60)}}}</h4>
 				<p>
-				Posted by: {{{whichuser($individualposts['user_id'])}}} on {{{$individualposts->created_at->setTimezone('America/Chicago')->format('l, F jS Y')}}} at {{{$individualposts->created_at->setTimezone('America/Chicago')->format('h:i A')}}}
+				Posted by: {{{$individualposts->user->username}}} on {{{$individualposts->created_at->format('l, F jS Y')}}} at {{{$individualposts->created_at->format('h:i A')}}}
 				</p>
-				@if(whichuser($individualposts['user_id']) == Session::get('loggedinuser'))
+				@if($individualposts->user->username == Session::get('loggedinuser'))
 				<a href="{{{action('PostsController@edit', array($individualposts['id']))}}}"><button class="btn btn-primary">Edit this post</button></a>
 
 				{{Form::open(array('url' => "/posts/$individualposts->id", 'id' => 'deleteform'))}}
