@@ -41,7 +41,7 @@
 				</div>
 			
 		@endforeach
-		
+		{{$posts->links()}}
 		<div class="box">
 			<a href="/posts/create"><buton class="btn btn-primary">Create a post</button></a>
 			<a href="{{{action('UsersController@editprofile')}}}"><button class="btn btn-success">Edit Your Profile</button></a>

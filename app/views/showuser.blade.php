@@ -31,9 +31,9 @@
 				</div>
 			
 		@endforeach
-		{{-- <div class = "box">
+
 			{{$posts->links()}}
-		</div> --}}
+		
 	</div>
 </div>
 @stop

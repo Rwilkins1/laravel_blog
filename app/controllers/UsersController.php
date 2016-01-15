@@ -7,7 +7,7 @@ class UsersController extends BaseController {
 		{
 			if(Auth::check()) {
 				$user = Auth::user();
-				$posts = DB::table('posts')->where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+				$posts = DB::table('posts')->where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(4);
 				return View::make('yourprofile')->with('user', $user)->with('posts', $posts);
 			} else {
 				App::abort(403);
@@ -18,7 +18,7 @@ class UsersController extends BaseController {
 		public function show($id)
 		{
 			$user = User::find($id);
-			$posts = $user->posts;
+			$posts = Post::with('user')->where('user_id', $id)->orderBy('created_at', 'desc')->paginate(4);
 
 
 			if($user != null) {		
@@ -68,11 +68,11 @@ class UsersController extends BaseController {
 	// Shows you the page or tells you you're already logged in
 		public function forgotpassword()
 		{
-			if(!Session::has('loggedinuser')) {
-				return View::make('forgotpassword');
-			} else {
+			if(Auth::check()) {
 				Session::flash('errorMessage', 'Dude! You\'re alredy logged in!');
 				return Redirect::action('UsersController@index');
+			} else {
+				return View::make('forgotpassword');
 			}
 		}
 
@@ -82,14 +82,15 @@ class UsersController extends BaseController {
 			$phone = Input::get('phone');
 			$username = Input::get('username');
 			$email = Input::get('email');
-			$userdata = Auth::user()->email;
-			$userid = Auth::user()->id;
-			$userphone = Auth::user()->phone;
-			$userusername = Auth::user()->username;
+			$usertable = DB::table('users')->where('email', Input::get('email'))->pluck('id');
+			$user = User::find($usertable);
+			$userdata = $user->email;
+			$userphone = $user->phone;
+			$userusername = $user->username;
 			if($email == $userdata) {
 				if($phone == $userphone) {
 					if($username == $userusername) {
-						$user = User::find($userid);
+						$user = User::find($usertable);
 						$passwordsarray = ['temporary', 'security', 'newpassword', 'robot', 'rubberduck', 'bigbird', 'blacklab', 'foobar', 'fizzbuzz', 'newvariable'];
 						$random = mt_rand(1, 10);
 						$password = $passwordsarray[$random];
@@ -120,7 +121,7 @@ class UsersController extends BaseController {
 		public function editprofile()
 		{
 			if(Auth::check()) {
-				$userinfo = User::find(Session::get('loggedinid'));
+				$userinfo = Auth::user();
 				return View::make('editprofile')->with('userinfo', $userinfo);
 			} else {
 				App::abort(403);
@@ -131,25 +132,39 @@ class UsersController extends BaseController {
 		public function updateprofile()
 		{
 			$validator = Validator::make(Input::all(), User::$editrules);
-			if(Session::has('loggedinuser')) {
-				$user = Session::get('loggedinuser');
-				$userid = DB::table('users')->where('username', $user)->pluck('id');
-				$usertoupdate = User::find($userid);
+			if(Auth::check()) {
+				$usertoupdate = Auth::user();
 				$usertoupdate->firstname = Input::get('firstname');
 				$usertoupdate->lastname = Input::get('lastname');
-				$usertoupdate->username = Input::get('username');
 				$usertoupdate->phone = Input::get('phone');
-				$usertoupdate->email = Input::get('email');
+				$checkdbforusername = DB::table('users')->where('username', Input::get('username'))->pluck('username');
+				$checkdbforemail = DB::table('users')->where('email', Input::get('email'))->pluck('email');
 
 				if($validator->fails()) {
 					Session::flash('errormessage', 'Sorry, some of your inputs are incorrect');
 					return Redirect::back()->withInput()->withErrors($validator);
 				} else {
-					$usertoupdate->save();
-					Session::forget('loggedinuser');
-					Session::put('loggedinuser', $usertoupdate->username);
-					Session::flash('successMessage', 'Profile successfully updated!');
-					return Redirect::action('UsersController@index');
+					if($checkdbforusername == null || $checkdbforusername == Auth::user()->username) {
+						if($checkdbforemail == null || $checkdbforemail == Auth::user()->email) {
+							if($checkdbforusername != Auth::user()->username) {
+								$usertoupdate->username = Input::get('username');
+							}
+							if($checkdbforemail != Auth::user()->email) {
+								$usertoupdate->email = Input::get('email');
+							}
+							$usertoupdate->save();
+							Session::forget('loggedinuser');
+							Session::put('loggedinuser', $usertoupdate->username);
+							Session::flash('successMessage', 'Profile successfully updated!');
+							return Redirect::action('UsersController@index');
+						} else {
+							Session::flash('errorMessage', 'This email address is already taken');
+							return Redirect::back()->withInput();
+						}
+					} else {
+						Session::flash('errorMessage', 'This username is already taken');
+						return Redirect::back()->withInput();
+					}
 				}
 			}
 		}
