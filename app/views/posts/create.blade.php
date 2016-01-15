@@ -12,7 +12,7 @@ if($newpost->title != null) {
 ?> --}}
 @section('top-script')
 <style type="text/css">
-	
+
 </style>
 @stop
 @section('content')
@@ -21,7 +21,7 @@ if($newpost->title != null) {
 		<div class = "box">
 			<div class="errormessage">{{{$errors->first('title', ':message')}}}</div>
 			<div class="errormessage">{{{$errors->first('body', ':message')}}}</div>
-			{{Form::open(array('class' => "form-horizontal", 'method' => "POST", 'action'=> 'PostsController@store'))}}
+			{{Form::open(array('class' => "form-horizontal", 'method' => "POST", 'action'=> 'PostsController@store', 'files' => 'true'))}}
 					<div class ="form-group">
 						{{Form::label('title', 'Title', array('class' => "control-label"))}}
 						<div class="col-sm-6">
@@ -33,6 +33,14 @@ if($newpost->title != null) {
 						{{Form::label('body', 'Body', array('class' => 'control-label'))}}
 						<div class="col-sm-6">
 							{{Form::textarea('body', '', array('class' => 'form-control'))}}
+						</div>
+					</div>
+				</p>
+				<p>
+					<div class="form-group">
+						{{Form::label('image_url', 'Image', array('class' => 'control-label'))}}
+						<div class="col-sm-6">
+						{{Form::file('image_url', '', array('class' => 'form-control'))}}
 						</div>
 					</div>
 				</p>

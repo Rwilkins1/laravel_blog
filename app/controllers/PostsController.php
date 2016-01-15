@@ -23,11 +23,12 @@ class PostsController extends \BaseController {
 		public function search()
 		{
 			$title = Input::get('title');
+			$post_id = DB::table('posts')->where('title', $title)->pluck('id');
 			$post_title = DB::table('posts')->where('title', $title)->pluck('title');
 			$post_body = DB::table('posts')->where('title', $title)->pluck('body');
 			if($post_title != null) {
 				Session::flash('successMessage', 'Search successful');
-				return View::make('searchresults')->with('post_title', $post_title)->with('post_body', $post_body);
+				return View::make('searchresults')->with('post_title', $post_title)->with('post_body', $post_body)->with('post_id', $post_id);
 			} else {
 				Session::flash('errorMessage', 'The post you are looking for doesn\'t exist');
 				return Redirect::back();
@@ -57,6 +58,13 @@ class PostsController extends \BaseController {
 			$newpost->title = Input::get('title');
 			$newpost->body = Input::get('body');
 	        $newpost->user_id = $userinfo->id;
+
+	        $imagename = Input::file('image_url');
+	        $originalname = $imagename->getClientOriginalName();
+	        $imagepath = 'public/img/upload/';
+	        $imagename->move($imagepath, $originalname);
+	        $newpost->image_url = $imagepath . $originalname;
+	        
 	        $checkthedb = DB::table('posts')->where('title', Input::get('title'))->pluck('title');
 	        if($checkthedb == null) {
 				if($validator->fails()) {
@@ -83,8 +91,9 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
+		$user = User::find($post->user_id);
         if($post != null) {
-            return View::make('showposts')->with('post', $post);
+            return View::make('showposts')->with('post', $post)->with('user', $user);
         } else {
             App::abort(404);
         }

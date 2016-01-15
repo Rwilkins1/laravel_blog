@@ -20,6 +20,13 @@
 		.brand {
 			color: white;
 		}
+		a {
+			color:skyblue;
+		}
+		a:hover {
+			color: skyblue;
+			text-decoration: none;
+		}
 		.errormessage {
 		background-color: red;
 		color: white;
@@ -31,7 +38,7 @@
 </head>
 <body>
 	<div class="brand"><a href="{{{action('HomeController@showWelcome')}}}">Reagan Wilkins</a></div>
-    <div class="address-bar">1009 Garraty Road | San Antonio, TX 78209 | 979-224-0816</div>
+    <div class="address-bar">reagan.wilkins@gmail.com | San Antonio, TX 78209 | 979-224-0816</div>
 	<!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">

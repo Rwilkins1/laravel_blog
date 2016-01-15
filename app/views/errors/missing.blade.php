@@ -5,6 +5,7 @@
 <div class="container">
 	<div class="box">
 		<div class="col-lg-12 text-center">
+			<img src="/img/404.png">
 			<h1>Error 404: Not Found</h1>
 			<h4>The page you are looking for is invalid or does not exist.</h4>
 		</div>

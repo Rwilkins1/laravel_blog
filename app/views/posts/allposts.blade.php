@@ -30,6 +30,9 @@
 		</div>
 		@foreach($posts as $individualposts)
 			<div class = "box">
+				@if($individualposts->image_url != null)
+				<img src="{{{$individualposts->image_url}}}">
+				@endif
 				<a href="{{{action('PostsController@show', $individualposts->id)}}}"><h3>{{{$individualposts->title}}}</h3></a>
 				<h4>{{{ Str::limit($individualposts->body, 60)}}}</h4>
 				<p>
