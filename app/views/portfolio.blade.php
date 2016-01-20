@@ -41,7 +41,7 @@
 		</div>
 		<div class = "col-md-4 sec">
 			<div class = "box">
-				<h4>Spatula City (A spatula-based Adlister built in a team setting):</h4><a href="{{{action('HomeController@gotospatulas')}}}" target="_blank"><img id="spatulacity" src="/img/spat.png"></a></li>
+				<h4>Spatula City (A spatula-based Adlister built in a team setting):</h4><img id="spatulacity" src="/img/spat.png"></a></li>
 			</div>
 		</div>
 		<div class="col-md-4 sec">
