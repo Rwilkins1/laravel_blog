@@ -232,6 +232,7 @@ class UsersController extends BaseController {
 	// Either saves the info or shows you your errors
 		public function store()
 		{
+		// Non-image variables
 			$validator = Validator::make(Input::all(), User::$rules);
 			$newuser = new User();
 			$newuser->firstname = Input::get('firstname');
@@ -240,6 +241,14 @@ class UsersController extends BaseController {
 			$newuser->phone = Input::get('phone');
 			$newuser->password = Hash::make(Input::get('password'));
 			$newuser->email = Input::get('email');
+
+		// Image upload
+			$imagename = Input::file('image_url');
+	        $originalname = $imagename->getClientOriginalName();
+	        $imagepath = 'public/img/upload/';
+	        $imagename->move($imagepath, $originalname);
+	        $newuser->image_url = $imagepath . $originalname;
+
 			$checkdbforusername = DB::table('users')->where('username', Input::get('username'))->pluck('username');
 			$checkdbforemail = DB::table('users')->where('email', Input::get('email'))->pluck('email');
 			if($checkdbforusername == null) {

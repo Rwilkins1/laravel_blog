@@ -30,6 +30,7 @@ class User extends baseModel implements UserInterface, RemindableInterface {
 		'password' => 'required',
 		'phone' => 'required',
 		'email' => 'required|email',
+		
 	);
 
 	public static $editrules = array(
@@ -38,6 +39,7 @@ class User extends baseModel implements UserInterface, RemindableInterface {
 		'username' => 'required',
 		'phone' => 'required',
 		'email' => 'required|email',
+		
 	);
 
 	public static function finduserbyusername($username)

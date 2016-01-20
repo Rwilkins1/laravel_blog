@@ -16,8 +16,9 @@ $class = "errormessage";
 	    			<div >{{{$errors->first('firstname', ':message')}}}</div>
 	    			<div >{{{$errors->first('lastname', ':message')}}}</div>
 	    			<div >{{{$errors->first('password', ':message')}}}</div>
+	    			<div>{{{$errors->first('image_url', ':message')}}}</div>
     			</div>
-    			{{Form::open(array('class' => "form-horizontal text-center", 'method' => 'POST', 'action' => 'UsersController@store'))}}
+    			{{Form::open(array('class' => "form-horizontal text-center", 'method' => 'POST', 'action' => 'UsersController@store', 'files' => 'true'))}}
     				<div class = "row">
     					<div class="form-group col-lg-4 col-lg-offset-4">
     						{{Form::label('username', 'Username', array('class' => 'control-label')) }}
@@ -58,6 +59,14 @@ $class = "errormessage";
     					<div class="form-group col-lg-4 col-lg-offset-4">
     						{{Form::label('confirm', 'Confirm Password', array('class' => 'control-label'))}}
     						<input type="password" class="form-control" name="confirm" id="confirm">
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="form-group col-lg-4 col-lg-offset-4">
+    						{{Form::label('image_url', 'Profile Picture', array('class' => 'control-label'))}}
+    						<div class="col-sm-6">
+    							{{Form::file('image_url', '', array('class' => 'form-control'))}}
+    						</div>
     					</div>
     				</div>
     		</div>

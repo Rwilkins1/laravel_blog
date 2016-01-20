@@ -26,6 +26,9 @@
 		padding-bottom: 2%;
 		margin-bottom: -2%;
 	}
+    .objective {
+        display: none;
+    }
 	#list1 {
 		display: none;
 	}
@@ -64,6 +67,21 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12 text-center">
+        <div class="box">
+            <h4 id="headingagain">Objective</h4>
+            <span class="objective">
+                <h5>I am looking to be a part of a web development team in a position that:</h5>
+                <ul>
+                    <li>1) Allows me to apply my love of solving complex programming problems</li>
+                    <li>2) Provides an environment in which I can continue to grow in my skills as a programmer </li>
+                    and
+                    <li>3) Consistently requires that I continue to improve my work.</li>
+                </ul>
+                If you are looking to hire a challenge-seeking team member or know of somebody who is seeking such an employee, feel free to contact me!
+            </span>
+        </div>
+    </div>
 	<div class = "col-md-12 text-center">
         <div class = "box">
             <h4 id="heading1"><strong>Education and Academic Honors</strong></h4>
@@ -96,7 +114,7 @@
                 </li>
                 <li>Twitter Bootstrap
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%</div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">85%</div>
                     </div>
                 </li>
 				<li>JavaScript
@@ -121,12 +139,7 @@
                 </li>
                 <li>Laravel
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">70%</div>
-                    </div>
-                </li>
-                <li>Angular
-                    <div class = "progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">90%</div>
                     </div>
                 </li>
 			</ul>
@@ -178,6 +191,11 @@
 
 @section('bottom-script')
 <script type="text/javascript">
+
+$("#headingagain").click(function() {
+    $(".objective").slideToggle();
+});
+
 $("#heading1").click(function() {
 	$("#list1").slideToggle();
 });

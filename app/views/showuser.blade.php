@@ -17,6 +17,9 @@
 <div class="row">
 	<div class="col-md-12 text-center">
 		<div class="box">
+			@if(Auth::user()->image_url != null)
+				<img src="/../{{{Auth::user()->image_url}}}">
+			@endif
 			<h4> {{{$user['firstname']}}} {{{$user['lastname']}}}</h4>
 			<h5>Joined: {{{$user->created_at->format('l, F jS Y')}}}</h5>
 			<h3>{{{$user['username']}}}'s Posts:</h3>
@@ -25,6 +28,9 @@
 		@foreach($posts as $individualposts) 
 			
 				<div class="box">
+					@if($individualposts->image_url != null)
+					<img src="../{{{$individualposts->image_url}}}">
+					@endif
 					<a href="{{{action('PostsController@show', array($individualposts->id))}}}"><h3>{{{$individualposts->title}}}</h3></a>
 					<h4>{{{ Str::limit($individualposts->body, 60)}}}</h4>
 					Posted: {{{$individualposts->created_at->format('l, F jS Y')}}}
