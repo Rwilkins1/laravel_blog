@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Reagan's Blog</title>
+	<link rel="icon" type="image/png" href="/img/Smooth.png">
 	<link rel="stylesheet" type="text/css" href="/CSS/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/theme/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/theme/css/business-casual.css">

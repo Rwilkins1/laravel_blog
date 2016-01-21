@@ -78,7 +78,6 @@
                     and
                     <li>3) Consistently requires that I continue to improve my work.</li>
                 </ul>
-                If you are looking to hire a challenge-seeking team member or know of somebody who is seeking such an employee, feel free to contact me!
             </span>
         </div>
     </div>

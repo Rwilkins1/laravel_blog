@@ -17,8 +17,8 @@
 <div class="row">
 	<div class="col-md-12 text-center">
 		<div class="box">
-			@if(Auth::user()->image_url != null)
-				<img src="/../{{{Auth::user()->image_url}}}">
+			@if($user->image_url != null)
+				<img src="/../{{{$user->image_url}}}">
 			@endif
 			<h4> {{{$user['firstname']}}} {{{$user['lastname']}}}</h4>
 			<h5>Joined: {{{$user->created_at->format('l, F jS Y')}}}</h5>

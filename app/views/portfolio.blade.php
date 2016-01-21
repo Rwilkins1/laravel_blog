@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-md-4 sec">
 			<div class="box">
-				<h4>Calculator (A fully functioning JavaScript application with 14 different operators):</h4><a href="{{{action('HomeController@calculator')}}}" target="_blank"><img id="calculator" src="/img/calculator.png"></a>
+				<h4>Calculator (A fully functioning JavaScript application with 14 different operators):</h4><img id="calculator" src="/img/calculator.png">
 			</div>
 		</div>
 		<div class = "col-md-4">
