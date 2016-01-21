@@ -97,7 +97,7 @@
             </ul>
         </div>
 	</div>
-	<div class = "col-md-12 col-sm-8 text-center">
+	<div class = "col-md-12 text-center">
         <div class = "box">
 			<h4 id="heading2"><strong>Proficiencies</strong></h4>
 			<ul id="list2">
@@ -144,7 +144,7 @@
 			</ul>
         </div>
 	</div>
-	<div class = "col-md-12 col-sm-8 text-center">
+	<div class = "col-md-12 text-center">
         <div class = "box">
             <h4 id="heading3"><strong>Volunteering/Extracurricular Activities</strong></h4>
             <ul id = "list3">
