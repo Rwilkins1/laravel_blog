@@ -18,7 +18,7 @@
 @stop
 @section('content')
 <div class = "row">
-	<div class = "col-md-12 col-sm-8 text-center">
+	<div class = "col-md-12 text-center">
 		<div class="box">
 			<form class="form-horizontal col-md-4 col-md-offset-4" method="POST" action="{{{action('PostsController@search')}}}">
 				<div class="form-group">
