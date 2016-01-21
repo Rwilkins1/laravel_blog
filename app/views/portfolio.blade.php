@@ -23,7 +23,7 @@
 
 @section('content')
 <div class = "row">
-	<div class = "col-md-12 col-sm-8 text-center">
+	<div class = "col-md-12 text-center">
 		<div class = "box">
 			<h1>Programming Projects <strong>I've Worked On</strong></h1>
 		</div>
