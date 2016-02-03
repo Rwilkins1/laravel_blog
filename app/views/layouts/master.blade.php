@@ -61,27 +61,11 @@
                         <a href="{{{action('HomeController@showWelcome')}}}">Home</a>
                     </li> --}}
                     <li>
-                    	<a href="{{{action('PostsController@index')}}}">Posts</a>
-                    </li>
-                    <li>
                         <a href="{{{action('HomeController@showResume')}}}">Resume</a>
                     </li>
                     <li>
                         <a href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
                     </li>
-                    @if(Auth::check() == false)
-	                    <li>
-	                    	<a href="{{{action('UsersController@showloginpage')}}}">Log In</a>
-	                    </li>
-	                    <li>
-	                    	<a href="{{{action('HomeController@signup')}}}">Sign Up</a>
-	                    </li>
-                    @endif
-                    @if(Auth::check())
-                    <li>
-                    	<a href="{{{action('UsersController@index')}}}">Your Profile</a>
-                    </li>
-                    @endif
                     <li>
                         <a href="{{{action('HomeController@showContact')}}}">Contact Me!</a>
                     </li>
