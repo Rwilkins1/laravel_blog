@@ -53,6 +53,10 @@ Route::post('/updatepassword', 'UsersController@updatepassword');
 
 Route::get('/user/show/{id}', 'UsersController@show');
 
+Route::get('/socialnotes', 'HomeController@socialnotes');
+
+Route::get('/bowilkins', 'HomeController@bowilkins');
+
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');

@@ -33,7 +33,18 @@ class HomeController extends BaseController {
     {
         return View::make('portfolio');
     }
-
+    public function away($path, $status = 302, $headers = array())
+    {
+        return $this->createRedirect($path, $status, $headers);
+    }
+    public function socialnotes()
+    {
+        return Redirect::away("http://socialnotes.xyz");
+    }
+    public function bowilkins()
+    {
+        return Redirect::away("http://bowilkins.xyz");
+    }
     public function rolldice($guess = null)
     {
             $randomnumber = mt_rand(1, 6);
