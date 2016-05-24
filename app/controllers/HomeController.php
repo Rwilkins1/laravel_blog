@@ -45,6 +45,10 @@ class HomeController extends BaseController {
     {
         return Redirect::away("http://bowilkins.xyz");
     }
+    public function therighttriggersite() {
+        return Redirect::away("http://therighttrigger.com");
+    }
+    
     public function rolldice($guess = null)
     {
             $randomnumber = mt_rand(1, 6);

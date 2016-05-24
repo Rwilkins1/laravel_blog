@@ -84,6 +84,25 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-12 text-center">
+		<div class="col-md-4">
+			<div class="box">
+				<h4>Go Fish! [In Development] (A JavaScript/jQuery game. Opponent will remember cards you've asked for)</h4><img src="/img/gofish.png">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="box">
+				<h4>The Right Trigger . com (A Laravel reimagining of my video game review blog. Allows for easy subscription)</h4><a href="{{{action('HomeController@therighttriggersite')}}}" target="blank"><img src="/img/righttrigger.png"></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="box">
+				<h4>Screenlight [Working title, in development] (A Dating Site/Social Network with focus on user customization)</h4><img src="/img/screenlight.png">
+			</div>
+		</div>
+	</div>
+</div>
 		{{-- </div>
 	</div> --}}
 {{-- <div class = "row">

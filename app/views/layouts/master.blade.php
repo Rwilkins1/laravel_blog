@@ -66,9 +66,6 @@
                     <li>
                         <a href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
                     </li>
-                    <li>
-                        <a href="{{{action('HomeController@showContact')}}}">Contact Me!</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

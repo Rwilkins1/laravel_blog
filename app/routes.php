@@ -57,6 +57,8 @@ Route::get('/socialnotes', 'HomeController@socialnotes');
 
 Route::get('/bowilkins', 'HomeController@bowilkins');
 
+Route::get('/therighttrigger', 'HomeController@therighttriggersite');
+
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 Route::get('/rolldice/{guess?}', 'HomeController@rolldice');

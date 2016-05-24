@@ -55,12 +55,18 @@
         background-color: gray;
         border: 5px double black;
     }
+    .resumepic {
+        height: ;
+    }
 </style>
 @stop
 
 @section('content')
 <div class = "row">
-    <div class = "box">
+    <div class="col-md-12">
+        <img class ="resumepic" src="/img/resume.png">
+    </div>
+   {{--  <div class = "box">
         <div class = "col-md-12 text-center">
             <div class = "intro-text">
                 <h1>Click on a category<strong> to view my information</strong></h1>
@@ -184,12 +190,35 @@
             </ul>
         </div>
 	</div>
-</div>
+</div> --}}
 </div>
 @stop
 
 @section('bottom-script')
 <script type="text/javascript">
+function jqUpdateSize(){
+    // Get the dimensions of the viewport
+    var width = $(window).width();
+    var height = $(window).height();
+
+    if(width < 900) {
+        $(".resumepic").css("width", (width) + "px").css("margin-left", "0px");
+    } else {
+        $(".resumepic").css("width", (width-100) + "px").css("margin-left", "50px");
+    }
+    if(height < 500) {
+        $(".resumepic").css("height", (height*2) + "px");
+    } else if(width > 600) {
+        $(".resumepic").css("height", (height*1.5) + "px");
+    } else {
+        $(".resumepic").css("height", height + "px");
+    }
+    console.log("Height " + height);
+    console.log("Width " + width);
+};
+$(document).ready(jqUpdateSize);
+    // When the page first loads
+$(window).resize(jqUpdateSize); 
 
 $("#headingagain").click(function() {
     $(".objective").slideToggle();
