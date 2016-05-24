@@ -26,6 +26,9 @@
 		padding-bottom: 2%;
 		margin-bottom: -2%;
 	}
+    .resumetext {
+        color: white;
+    }
     .objective {
         display: none;
     }
@@ -63,6 +66,7 @@
 
 @section('content')
 <div class = "row">
+    <h4 class="resumetext text-center">Note: If viewing on mobile, landscape view is recommended</h4>
     <div class="col-md-12">
         <img class ="resumepic" src="/img/resume.png">
     </div>
